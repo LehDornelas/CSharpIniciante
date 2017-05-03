@@ -10,8 +10,18 @@ namespace Aula11
     {
         static void Main(string[] args)
         {
+            //exemplo lista
             List<int> lista = new List<int>();
             lista.Add(1);
+
+            //exemplo do while
+            int a = 1;
+            do
+            {
+                Console.WriteLine(a.ToString());
+                a = a+1;
+            } while (a <= 10);
+            Console.ReadKey();
         }
     }
 }
