@@ -21,11 +21,16 @@ namespace Aula11
                 Console.WriteLine(a.ToString());
                 a = a+1;
             } while (a <= 10);
-
+            //exemplo while
             while (a>10 && a<=20)
             {
                 Console.WriteLine(a.ToString());
                 a++;
+            }
+            //exemplo for
+            for (int i = 21; i <= 30; i++)
+            {
+                Console.WriteLine(i.ToString());
             }
             Console.ReadKey();
         }
