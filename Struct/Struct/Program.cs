@@ -28,7 +28,10 @@ namespace Struct
             livro2.nomeAutor = "Teste2";
             livro2.titulo = "Livro do teste2";
 
-            ArrayList livros = new ArrayList();
+            //ArrayList livros = new ArrayList();
+          
+
+            List<Livro> livros = new List<Livro>();
             livros.Add(livro1);
             livros.Add(livro2);
 
