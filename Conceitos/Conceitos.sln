@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conceitos", "Conceitos\Conc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nota", "Nota\Nota.csproj", "{31404A4E-DD73-4369-B62F-4C19C47D7560}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nota.teste", "Nota.teste\Nota.teste.csproj", "{E9220183-2C02-49FE-B92A-0BC78A604E6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{31404A4E-DD73-4369-B62F-4C19C47D7560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31404A4E-DD73-4369-B62F-4C19C47D7560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31404A4E-DD73-4369-B62F-4C19C47D7560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9220183-2C02-49FE-B92A-0BC78A604E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9220183-2C02-49FE-B92A-0BC78A604E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9220183-2C02-49FE-B92A-0BC78A604E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9220183-2C02-49FE-B92A-0BC78A604E6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

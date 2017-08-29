@@ -12,8 +12,15 @@ namespace Nota
         {
             CadernoNota caderno = new CadernoNota();
 
-            caderno.AddNota(1);
-            caderno.AddNota(2.3f);
+            caderno.AddNota(91);
+            caderno.AddNota(89.5f);
+            caderno.AddNota(75);
+
+            Estatistica estatis = caderno.CalcularEstatistica();
+            Console.WriteLine(estatis.AvarageGrade);
+            Console.WriteLine(estatis.HighestGrade);
+            Console.WriteLine(estatis.LowestGrade);
+            Console.ReadKey();
         }
-    }//
+    }
 }

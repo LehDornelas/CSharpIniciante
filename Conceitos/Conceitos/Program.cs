@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,9 @@ namespace Conceitos
             /* Assembly, eh nada mais do que um arquivo que contem codigo compilado. Voce pode ter dois tipos de assemblies, pode ser um arquivo executavel(.exe) ou pode ser uma biblioteca(.dll).
              * Namespaces, tem a ver com escopo das suas classes, eh uma forma de organizar as suas class e eh bastante util para evitar colisao de nomes.
             */
+
+            SpeechSynthesizer fala = new SpeechSynthesizer();
+            fala.Speak("Exemplo de referenciar Assembly");
 
             // Exemplo de um programa simples em c#
 
