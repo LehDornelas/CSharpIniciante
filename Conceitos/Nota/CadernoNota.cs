@@ -34,6 +34,7 @@ namespace Nota
             return estatis;
         }
 
+        public string Nome;
         public void AddNota(float nota)
         {
             notas.Add(nota);

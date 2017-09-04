@@ -21,6 +21,8 @@ namespace Nota
             Console.WriteLine(estatis.HighestGrade);
             Console.WriteLine(estatis.LowestGrade);
             Console.ReadKey();
+
+
         }
     }
 }

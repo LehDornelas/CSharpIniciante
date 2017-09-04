@@ -48,6 +48,7 @@ namespace Nota.teste
             Estatistica resultado = caderno.CalcularEstatistica();
 
             Assert.AreEqual(10, resultado.AvarageGrade);
+            Assert.AreEqual(10.1, resultado.AvarageGrade, 0.1);
         }
 
     }
