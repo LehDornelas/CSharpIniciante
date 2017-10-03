@@ -15,6 +15,7 @@ namespace Nota
         //ctor - criação de um construtor
         public CadernoNota()
         {
+            _nome = "Vazio";
             notas = new List<float>();
         }
 
@@ -34,7 +35,28 @@ namespace Nota
             return estatis;
         }
 
-        public string Nome;
+        public string Nome
+        {
+            get
+            {
+                return _nome;
+            }
+            set
+            {
+                if(!String.IsNullOrEmpty(value))
+                {
+                    if(_nome != value)
+                    {
+                        NameChanged(_nome, value);
+                    }
+                    _nome = value;
+                }
+            }
+        }
+
+        public NameChangedDelegate NameChanged;
+
+        private string _nome;
         public void AddNota(float nota)
         {
             notas.Add(nota);
