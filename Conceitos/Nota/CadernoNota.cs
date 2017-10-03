@@ -54,7 +54,9 @@ namespace Nota
             }
         }
 
-        public NameChangedDelegate NameChanged;
+        // public NameChangedDelegate NameChanged; // Only delegate.
+
+        public event NameChangedDelegate NameChanged
 
         private string _nome;
         public void AddNota(float nota)
