@@ -47,7 +47,11 @@ namespace Nota
                 {
                     if(_nome != value)
                     {
-                        NameChanged(_nome, value);
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.ExistingName = _nome;
+                        args.NewName = value;
+                        //this.
+                        NameChanged(this,args);
                     }
                     _nome = value;
                 }
@@ -56,7 +60,7 @@ namespace Nota
 
         // public NameChangedDelegate NameChanged; // Only delegate.
 
-        public event NameChangedDelegate NameChanged
+        public event NameChangedDelegate NameChanged;
 
         private string _nome;
         public void AddNota(float nota)

@@ -13,7 +13,8 @@ namespace Nota
             CadernoNota caderno = new CadernoNota();
 
             caderno.NameChanged += new NameChangedDelegate(OnNameChanged);
-            caderno.NameChanged += new NameChangedDelegate(OnNameChanged2);
+            //caderno.NameChanged += new NameChangedDelegate(OnNameChanged2);
+            //caderno.NameChanged += OnNameChanged2;
 
             caderno.Nome = "Notas Aluno";
             caderno.Nome = "Caderno teste";
@@ -33,15 +34,15 @@ namespace Nota
 
         }
 
-        static void OnNameChanged(String existente, string novo)
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine($"Estamos trocando o nome de {existente} para {novo} !" );
+            Console.WriteLine($"Estamos trocando o nome de {args.ExistingName} para {args.NewName} !" );
         }
 
-        static void OnNameChanged2(String existente, string novo)
+       /*( static void OnNameChanged2(String existente, string novo)
         {
             Console.WriteLine("***");
-        }
+        }*/
 
         static void WriteResult(string descricao, int resultad)
         {
