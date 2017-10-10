@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,14 @@ namespace Nota
 
             estatis.AvarageGrade = sum / notas.Count;
             return estatis;
+        }
+
+        internal void WriteGrades(TextWriter destination)
+        {
+            for (int i = 0; i < notas.Count; i++)
+            {
+                destination.WriteLine(notas[i]);
+            }
         }
 
         public string Nome
