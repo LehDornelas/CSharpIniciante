@@ -19,9 +19,25 @@ namespace Nota
             caderno.Nome = "Notas Aluno";
             caderno.Nome = "Caderno teste";*/
 
+
+            Console.WriteLine("Insira um nome:");
+            try
+            {
+                caderno.Nome = Console.ReadLine();
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine("Deu ruim");
+            }
             caderno.AddNota(91);
             caderno.AddNota(89.5f);
             caderno.AddNota(75);
+
+            caderno.WriteGrades(Console.Out);
 
             Estatistica estatis = caderno.CalcularEstatistica();
             //Console.WriteLine(caderno.Nome);

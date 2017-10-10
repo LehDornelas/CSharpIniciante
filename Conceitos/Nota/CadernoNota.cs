@@ -52,9 +52,15 @@ namespace Nota
             }
             set
             {
-                if(!String.IsNullOrEmpty(value))
+                // if(!String.IsNullOrEmpty(value))
+                //{
+
+                if (string.IsNullOrEmpty(value))
                 {
-                    if(_nome != value)
+                    throw new ArgumentException("Name cannot be null ou empty");
+                }
+
+                    if (_nome != value)
                     {
                         NameChangedEventArgs args = new NameChangedEventArgs();
                         args.ExistingName = _nome;
@@ -63,7 +69,7 @@ namespace Nota
                         NameChanged(this,args);
                     }
                     _nome = value;
-                }
+               // }
             }
         }
 
