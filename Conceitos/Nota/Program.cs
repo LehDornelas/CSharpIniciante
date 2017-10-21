@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,33 +13,15 @@ namespace Nota
         {
             CadernoNota caderno = new CadernoNota();
 
-            /*caderno.NameChanged += new NameChangedDelegate(OnNameChanged);
-            //caderno.NameChanged += new NameChangedDelegate(OnNameChanged2);
-            //caderno.NameChanged += OnNameChanged2;
+            GetName(caderno);
+            AddGrades(caderno);
+            SaveGrade(caderno);
+            WriteResoults(caderno);
 
-            caderno.Nome = "Notas Aluno";
-            caderno.Nome = "Caderno teste";*/
+        }
 
-
-            Console.WriteLine("Insira um nome:");
-            try
-            {
-                caderno.Nome = Console.ReadLine();
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch (NullReferenceException ex)
-            {
-                Console.WriteLine("Deu ruim");
-            }
-            caderno.AddNota(91);
-            caderno.AddNota(89.5f);
-            caderno.AddNota(75);
-
-            caderno.WriteGrades(Console.Out);
-
+        private static void WriteResoults(CadernoNota caderno)
+        {
             Estatistica estatis = caderno.CalcularEstatistica();
             //Console.WriteLine(caderno.Nome);
 
@@ -48,19 +31,49 @@ namespace Nota
             WriteResult("Grade", estatis.LetterGrade);
             WriteResult(estatis.Description, estatis.LetterGrade);
             Console.ReadKey();
-
-
         }
 
-       /* static void OnNameChanged(object sender, NameChangedEventArgs args)
+        private static void SaveGrade(CadernoNota caderno)
         {
-            Console.WriteLine($"Estamos trocando o nome de {args.ExistingName} para {args.NewName} !" );
-        }*/
+            using (StreamWriter outputFile = File.CreateText("grades.txt"))
+            {
+                caderno.WriteGrades(outputFile);
+            }
+        }
 
-       /*( static void OnNameChanged2(String existente, string novo)
+        private static void AddGrades(CadernoNota caderno)
         {
-            Console.WriteLine("***");
-        }*/
+            caderno.AddNota(91);
+            caderno.AddNota(89.5f);
+            caderno.AddNota(75);
+        }
+
+        private static void GetName(CadernoNota caderno)
+        {
+            try
+            {
+                Console.WriteLine("Insira um nome:");
+                caderno.Nome = Console.ReadLine();
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine("Deu ruim", ex);
+            }
+        }
+
+        /* static void OnNameChanged(object sender, NameChangedEventArgs args)
+         {
+             Console.WriteLine($"Estamos trocando o nome de {args.ExistingName} para {args.NewName} !" );
+         }*/
+
+        /*( static void OnNameChanged2(String existente, string novo)
+         {
+             Console.WriteLine("***");
+         }*/
 
         static void WriteResult(string descricao, float resultad)
         {
