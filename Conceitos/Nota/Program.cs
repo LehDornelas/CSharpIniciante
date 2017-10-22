@@ -11,9 +11,9 @@ namespace Nota
     {
         static void Main(string[] args)
         {
-            CadernoNota caderno = new CadernoNota();
+            ThrowAwayGradeBook caderno = new ThrowAwayGradeBook();
 
-            GetName(caderno);
+            //GetName(caderno);
             AddGrades(caderno);
             SaveGrade(caderno);
             WriteResoults(caderno);
@@ -33,7 +33,7 @@ namespace Nota
             Console.ReadKey();
         }
 
-        private static void SaveGrade(CadernoNota caderno)
+        private static void SaveGrade(ThrowAwayGradeBook caderno)
         {
             using (StreamWriter outputFile = File.CreateText("grades.txt"))
             {
@@ -53,7 +53,8 @@ namespace Nota
             try
             {
                 Console.WriteLine("Insira um nome:");
-                caderno.Nome = Console.ReadLine();
+                string teste = Console.ReadLine().ToString();
+                caderno.Nome = teste;
             }
             catch (ArgumentException ex)
             {
@@ -61,19 +62,9 @@ namespace Nota
             }
             catch (NullReferenceException ex)
             {
-                Console.WriteLine("Deu ruim", ex);
+                Console.WriteLine(ex.Message);
             }
         }
-
-        /* static void OnNameChanged(object sender, NameChangedEventArgs args)
-         {
-             Console.WriteLine($"Estamos trocando o nome de {args.ExistingName} para {args.NewName} !" );
-         }*/
-
-        /*( static void OnNameChanged2(String existente, string novo)
-         {
-             Console.WriteLine("***");
-         }*/
 
         static void WriteResult(string descricao, float resultad)
         {
@@ -85,10 +76,5 @@ namespace Nota
             Console.WriteLine($"{descricao} : {resultad}", descricao, resultad);
         }
 
-
-        /*static void WriteResult(string descricao, float resultad)
-        {
-            Console.WriteLine($"{descricao} : {resultad}");
-        }*/
     }
 }

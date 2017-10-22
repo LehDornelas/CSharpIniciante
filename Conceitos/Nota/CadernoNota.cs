@@ -12,7 +12,7 @@ namespace Nota
     //public - Todas
     public class CadernoNota
     {
-        List<float> notas;
+        protected List<float> notas;
         //ctor - criação de um construtor
         public CadernoNota()
         {
@@ -20,8 +20,11 @@ namespace Nota
             notas = new List<float>();
         }
 
+
         public  Estatistica CalcularEstatistica()
         {
+            Console.WriteLine("CadernoNota : ComputeStatistics");
+
             Estatistica estatis = new Estatistica();
 
             float sum = 0;
@@ -60,7 +63,7 @@ namespace Nota
                     throw new ArgumentException("Name cannot be null ou empty");
                 }
 
-                    if (_nome != value)
+                    if (_nome != value && NameChanged != null)
                     {
                         NameChangedEventArgs args = new NameChangedEventArgs();
                         args.ExistingName = _nome;
