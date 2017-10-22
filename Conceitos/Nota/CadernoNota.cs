@@ -10,7 +10,7 @@ namespace Nota
     //internal - Apenas o mesmo assembly (padrao)
     //private - Apenas a mesma classe
     //public - Todas
-    public class CadernoNota
+    public class CadernoNota : GradeTracker
     {
         protected List<float> notas;
         //ctor - criação de um construtor
@@ -21,7 +21,7 @@ namespace Nota
         }
 
 
-        public  Estatistica CalcularEstatistica()
+        public override Estatistica CalcularEstatistica()
         {
             Console.WriteLine("CadernoNota : ComputeStatistics");
 
@@ -39,7 +39,7 @@ namespace Nota
             return estatis;
         }
 
-        internal void WriteGrades(TextWriter destination)
+        public override void WriteGrades(TextWriter destination)
         {
             for (int i = 0; i < notas.Count; i++)
             {
@@ -81,7 +81,7 @@ namespace Nota
         public event NameChangedDelegate NameChanged;
 
         private string _nome;
-        public void AddNota(float nota)
+        public override void AddNota(float nota)
         {
             notas.Add(nota);
         }

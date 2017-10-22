@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="CadernoNota.cs" />
     <Compile Include="Estatistica.cs" />
+    <Compile Include="GradeTracker.cs" />
+    <Compile Include="IGradeTracker.cs" />
     <Compile Include="NameChangedDelegate.cs" />
     <Compile Include="NameChangedEventArgs.cs" />
     <Compile Include="Program.cs" />

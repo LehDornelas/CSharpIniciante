@@ -11,7 +11,7 @@ namespace Nota
     {
         static void Main(string[] args)
         {
-            ThrowAwayGradeBook caderno = new ThrowAwayGradeBook();
+            IGradeTracker caderno = CreateGradeBook();
 
             //GetName(caderno);
             AddGrades(caderno);
@@ -20,7 +20,12 @@ namespace Nota
 
         }
 
-        private static void WriteResoults(CadernoNota caderno)
+        private static IGradeTracker CreateGradeBook()
+        {
+            return new ThrowAwayGradeBook();
+        }
+
+        private static void WriteResoults(IGradeTracker caderno)
         {
             Estatistica estatis = caderno.CalcularEstatistica();
             //Console.WriteLine(caderno.Nome);
@@ -33,7 +38,7 @@ namespace Nota
             Console.ReadKey();
         }
 
-        private static void SaveGrade(ThrowAwayGradeBook caderno)
+        private static void SaveGrade(IGradeTracker caderno)
         {
             using (StreamWriter outputFile = File.CreateText("grades.txt"))
             {
@@ -41,14 +46,14 @@ namespace Nota
             }
         }
 
-        private static void AddGrades(CadernoNota caderno)
+        private static void AddGrades(IGradeTracker caderno)
         {
             caderno.AddNota(91);
             caderno.AddNota(89.5f);
             caderno.AddNota(75);
         }
 
-        private static void GetName(CadernoNota caderno)
+        private static void GetName(IGradeTracker caderno)
         {
             try
             {

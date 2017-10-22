@@ -8,7 +8,7 @@ namespace Nota
 {
     public class ThrowAwayGradeBook : CadernoNota
     {
-        public Estatistica ComputeStatistics()
+        public override Estatistica CalcularEstatistica()
         {
             Console.WriteLine("ThrowAwayGradeBook : ComputeStatistics");
 
